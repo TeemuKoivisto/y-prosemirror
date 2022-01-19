@@ -434,7 +434,7 @@ const createNodeFromYElement = (el, schema, mapping, snapshot, prevSnapshot, com
     Y.typeListToArraySnapshot(el, new Y.Snapshot(prevSnapshot.ds, snapshot.sv)).forEach(createChildren)
   }
   try {
-    const attrs = el.getAttributes(snapshot)
+    const attrs = el.getAttributes(snapshot, prevSnapshot)
     if (snapshot !== undefined) {
       if (!isVisible(/** @type {Y.Item} */ (el._item), snapshot)) {
         attrs.ychange = computeYChange ? computeYChange('removed', /** @type {Y.Item} */ (el._item).id) : { type: 'removed' }
